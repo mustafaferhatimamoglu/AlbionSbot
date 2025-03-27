@@ -39,7 +39,18 @@ def on_press(key):
         import imageClipboardFiler
         imageClipboardFiler.copy_image(name)
     if pressedKey == "f4":
-        print( pyautogui.locateAllOnScreen('asdasd.png'))
+        # if pyautogui.locateOnScreen('asdasd.png',grayscale=True,confidence=0.8):
+        #     print ('see')
+        # else:
+        #     print ('not')
+        while 1:
+            try:
+                location = pyautogui.locateOnScreen('asdasd.png',grayscale=True,confidence=0.8)
+                located = pyautogui.locateOnScreen('asdasd.png')
+                
+                print('image found')
+            except pyautogui.ImageNotFoundException:
+                print('ImageNotFoundException: image not found')
     else:
         print(f"Key : {pressedKey}")
 
