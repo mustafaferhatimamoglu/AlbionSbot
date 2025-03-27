@@ -7,6 +7,8 @@ import pyautogui
 from pylsl import StreamInfo, StreamOutlet, IRREGULAR_RATE, cf_double64
 from pynput import keyboard as kb  # for capturing the keyboard events
 
+
+
 def on_press(key):
     pressedKey = None
     try:
@@ -28,6 +30,16 @@ def on_press(key):
         pyautogui.keyUp("win")
         pyautogui.keyUp("shift")
         pyautogui.keyUp("s")
+    if pressedKey == "f3":
+        from tkinter.simpledialog import askstring
+        from tkinter.messagebox import showinfo
+        name = askstring('Name', 'Name?')
+        # showinfo('Hello!', 'Hi, {}'.format(name))
+
+        import imageClipboardFiler
+        imageClipboardFiler.copy_image(name)
+    if pressedKey == "f4":
+        print( pyautogui.locateAllOnScreen('asdasd.png'))
     else:
         print(f"Key : {pressedKey}")
 
